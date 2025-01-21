@@ -1,4 +1,7 @@
 from buildhat import MotorPair
+import time
+
+start_time = time.perf_counter()
 
 pair = MotorPair('C', 'D')
 

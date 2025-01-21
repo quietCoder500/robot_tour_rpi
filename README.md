@@ -1,4 +1,6 @@
 # Private Git Repo for Science Olympiad Robot Tour
+### IMPORTANT!
+Always run `source venv/bin/activate`
 ### Dependencies
 `pip3 install vl53l5cx-ctypes`
 and
@@ -9,3 +11,6 @@ https://shop.pimoroni.com/products/vl53l5cx-time-of-flight-tof-sensor-breakout?v
 
 https://shop.pimoroni.com/products/raspberry-pi-zero-2-w?variant=42101934587987
 This is to be discussed, maybe RPI 4 instead
+
+### Routine
+loop or sequence
