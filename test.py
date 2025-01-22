@@ -1,20 +1,17 @@
-from functools import wraps
-from time import sleep
+class PID:
+    def __init__(self, Kp, Ki, Kd):
+        self.Kp = Kp
+        self.Ki = Ki
+        self.Kd = Kd
+        self.last_error = 0
+        self.integral = 0
 
+    def update(self, error, dt):
+        derivative = (error - self.last_error) / dt
+        self.integral += error * dt
+        output = self.Kp * error + self.Ki * self.integral + self.Kd * derivative
+        self.last_error = error
+        return output
 
-def time_it(func):
- import time
- @wraps(func)
- def wrapper(*args,**kwargs):
-  start = time.time()
-  result = func(*args,**kwargs)
-  print(f'time taken by {func.__name__} is {time.time()-start }')
-
-  return result
- return wrapper
-
-@time_it
-def fib(num):
-    print(f'Calculating fib({num})')
-    sleep(0.5)
-print(fib(700000))
+# Example program
+pid = PID(Kp=1.0, Ki=0.1, Kd=0.5)
